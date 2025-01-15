@@ -97,27 +97,12 @@ const updateComment = async (req, res) => {
     }
 };
 
-// const deleteReviewById = async (req, res) => {
-//     const { id } = req.params
-//     try {
-//         const deletedCount = await reviewModel.deleteReviewById(id)
-//         if (deletedCount > 0) {
-//             res.status(200).json({ message: "Review deleted successfully" })
-//         } else {
-//             res.status(404).json({ message: "Review not found" })
-//         }
-//     } catch (error) {
-//         res.status(500).json({ message: error.message })
-//     }
-// }
-
 const deleteReviewById = async (req, res) => {
     const { id } = req.params;
-    const userId = req.user.id; // ID pengguna yang sedang login, diasumsikan ada di req.user
+    const userId = req.user.id;
     console.log('review ID', id, 'User ID', userId)
 
     try {
-        // Dapatkan review berdasarkan ID
         const review = await reviewModel.getReviewByIdReviews(id);
         console.log('review ID', review.user_id)
 
@@ -125,12 +110,10 @@ const deleteReviewById = async (req, res) => {
             return res.status(404).json({ message: "Review not found" });
         }
 
-        // Periksa apakah user adalah pemilik review
         if (review.user_id !== userId) {
             return res.status(403).json({ message: "You are not authorized to delete this review" });
         }
 
-        // Hapus review jika pemiliknya cocok
         const deletedCount = await reviewModel.deleteReviewById(id);
         if (deletedCount > 0) {
             res.status(200).json({ message: "Review deleted successfully" });

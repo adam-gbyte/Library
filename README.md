@@ -26,7 +26,7 @@
 - DELETE /api/books/:book_id
 - GET /api/loans
 
-# Bisa diakses admin dan user:
+### Bisa diakses admin dan user:
 - POST /api/auth/register
 - POST /api/auth/login
 - GET /api/users/:user_id

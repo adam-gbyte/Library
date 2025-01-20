@@ -18,7 +18,7 @@
 - Books dapat memiliki banyak ulasan (Reviews) dan banyak peminjaman (Loans).
 
 # Endpoint:
-###Yang hanya bisa diakses oleh admin:
+### Yang hanya bisa diakses oleh admin:
 - GET /api/users
 - DELETE /api/users/:user_id
 - POST /api/books

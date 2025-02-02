@@ -1,4 +1,4 @@
-<h1 align="center"> Library API </h1>
+<h1 align="center"> E-Library API </h1>
 
 ## KELOMPOK 2
 #### Adam Gumilang
